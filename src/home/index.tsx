@@ -1,6 +1,12 @@
-import Button from '../components/button';
+import Button from "../components/button";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+  const openQuestion = () => {
+    navigate(`/question`);
+  };
+
   return (
     <div className="h-screen max-h-screen flex flex-col items-center bg-violet-900 justify-between">
       <div className="flex flex-col space-y-2 p-8 items-center md:h-1/5 landscape:h-2/5 justify-center box-border">
@@ -41,10 +47,7 @@ function Home() {
             <strong className="text-yellow-400 font-bold">0%</strong> verídicos
             comprovados cientificamente
           </h2>
-          <Button
-            variant="primary"
-            size="default"
-          >
+          <Button onClick={openQuestion} variant="purple" size="default">
             Começar
           </Button>
         </div>
