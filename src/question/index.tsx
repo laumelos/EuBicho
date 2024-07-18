@@ -17,6 +17,7 @@ function Question() {
     options: string[];
     points: string[];
     groups: string[];
+    images: string[];
     optionLayout: "grid" | "column";
   }[] = [
     {
@@ -34,6 +35,7 @@ function Question() {
         "golfinho/lontra/pinguim",
         "gato/papagaio/tartaruga/coruja/camaleao",
       ],
+      images: ["Q1O1.png", "Q1O2.png", "Q1O3.png", "Q1O4.png"],
       optionLayout: "grid",
     },
     {
@@ -46,6 +48,129 @@ function Question() {
         "panda/cachorro/capivara/preguica",
         "papagaio/coruja/pinguim/tartaruga",
       ],
+      images: ["Q2O1.png", "Q2O2.png", "Q2O3.png", "Q2O4.png"],
+      optionLayout: "grid",
+    },
+    {
+      text: "Qual lugar incomum você escolheria para morar?",
+      options: [
+        "Caverna em uma montanha",
+        "Submarino",
+        "Casa na árvore",
+        "Toca de Hobbit",
+      ],
+      points: ["1", "2", "3", "4"],
+      groups: [
+        "tigre/raposa/lhama",
+        "golfinho/lontra/tigre",
+        "papagaio/coruja/panda/preguica",
+        "capivara/cachorro/gato/camaleao",
+      ],
+      images: [],
+      optionLayout: "column",
+    },
+    {
+      text: "Você vê esse copo como meio cheio ou meio vazio?",
+      options: ["Meio cheio", "Meio vazio"],
+      points: ["1", "2"],
+      groups: [
+        "tigre/golfinho/pinguim/papagaio/panda/capivara/cachorro/camaleao",
+        "raposa/lhama/lontra/tartaruga/coruja/preguica/gato",
+      ],
+      images: ["Q4O1.png"],
+      optionLayout: "column",
+    },
+    {
+      text: "Qual desses objetos improváveis você colecionaria?",
+      options: [
+        "Pedras incomuns",
+        "Bolas de gude",
+        "Itens em miniatura",
+        "Shampoos de hotéis",
+      ],
+      points: ["1", "2", "3", "4"],
+      groups: [
+        "camaleao/raposa/papagaio",
+        "golfinho/lontra/pinguim",
+        "tartaruga/capivara/panda/preguica",
+        "tigre/cachorro/gato/coruja/lhama",
+      ],
+      images: ["Q5O1.png", "Q5O2.png", "Q5O3.png", "Q5O4.png"],
+      optionLayout: "grid",
+    },
+    {
+      text: "Qual o seu nível de energia na maior parte do tempo?",
+      options: ["0-24%", "25-49%", "50-74%", "75-100%"],
+      points: ["1", "2", "3", "4"],
+      groups: [
+        "preguica/tartaruga/panda/capivara",
+        "gato/lhama/camaleao/coruja",
+        "raposa/cachorro/pinguim",
+        "tigre/golfinho/papagaio/lontra",
+      ],
+      images: [],
+      optionLayout: "column",
+    },
+    {
+      text: "Qual animal fictício você gostaria de conhecer?",
+      options: ["Fênix", "Unicórnio", "Kraken", "Yeti"],
+      points: ["1", "2", "3", "4"],
+      groups: [
+        "papagaio/camaleao/coruja/tigre",
+        "raposa/gato/panda/capivara",
+        "golfinho/cachorro/pinguim",
+        "preguica/lhama/tartaruga/lontra",
+      ],
+      images: ["Q7O1.png", "Q7O2.png", "Q7O3.png", "Q7O4.png"],
+      optionLayout: "grid",
+    },
+    {
+      text: "Quais desses desafios você acha que conseguiria cumprir?",
+      options: [
+        "Alimentar-se exclusivamente de comidas geladas por uma semana",
+        "Acampar sozinho na floresta por 3 dias",
+        "Participar do BBB por um mês",
+        "Passar 15 dias andando apenas de bicicleta ou a pé",
+      ],
+      points: ["1", "2", "3", "4"],
+      groups: [
+        "golfinho/lontra/pinguim/tartaruga",
+        "raposa/gato/panda/capivara",
+        "tigre/cachorro/coruja",
+        "preguica/lhama/papagaio/camaleao",
+      ],
+      images: [],
+      optionLayout: "column",
+    },
+    {
+      text: "Estamos quase lá… Qual seria o seu papel em um filme?",
+      options: ["Herói", "Vilão", "Ancião sábio", "Narrador"],
+      points: ["1", "2", "3", "4"],
+      groups: [
+        "tigre/golfinho/raposa/panda",
+        "coruja/camaleao/lontra/cachorro",
+        "papagaio/capivara/preguica/tartaruga",
+        "gato/lhama/pinguim",
+      ],
+      images: [],
+      optionLayout: "grid",
+    },
+    {
+      text: "Por fim… Siga sua intuição!",
+      options: [
+        "Alimentar-se exclusivamente de comidas geladas por uma semana",
+        "Acampar sozinho na floresta por 3 dias",
+        "Participar do BBB por um mês",
+        "Passar 15 dias andando apenas de bicicleta ou a pé",
+      ],
+      points: ["1", "2", "3", "4"],
+      groups: [
+        "papagaio/camaleao/gato/coruja",
+        "raposa/lontra/cachorro/preguica",
+        "capivara/pinguim/panda/tartaruga",
+        "lhama/tigre/golfinho",
+      ],
+      images: [],
       optionLayout: "grid",
     },
   ];
@@ -99,14 +224,23 @@ function Question() {
             );
             questionsData[currentQuestion].groups[groupToReceivePoints]
               .split("/")
-              .forEach((animalToReceivePoints, index) => {
+              .forEach((animalToReceivePoints) => {
                 console.log("animalToReceivePoints  " + animalToReceivePoints);
-                /*console.log(
-                  pointsData.animal + " " + index + "  " + animalToReceivePoints
-                );
-                if (pointsData.animal.includes(animalToReceivePoints)) {*/
-                pointsData[index].points = pointsData[index].points + 1;
-                /*}*/
+                pointsData.forEach((pointData, index) => {
+                  console.log(
+                    "animalToReceivePoints  " + animalToReceivePoints
+                  );
+                  console.log(
+                    pointData.animal +
+                      " " +
+                      index +
+                      "  " +
+                      animalToReceivePoints
+                  );
+                  if (pointData.animal === animalToReceivePoints) {
+                    pointsData[index].points += 1;
+                  }
+                });
               });
           });
         console.log(pointsData);
@@ -119,14 +253,14 @@ function Question() {
   };
 
   return (
-    <div className="h-screen max-h-screen flex flex-col items-center bg-zinc-950 justify-between p-8 space-y-16">
+    <div className="h-screen max-h-screen flex flex-col items-center bg-zinc-950 justify-between p-8 space-y-8 md:space-y-16 overflow-y-auto">
       <h2 className="text-zinc-50 text-3xl md:text-4xl text-center w-full md:w-3/4">
         {questionsData[currentQuestion].text}
       </h2>
       <Options
         variant={questionsData[currentQuestion].optionLayout}
         optionsData={questionsData[currentQuestion].options}
-        currentQuestion = {currentQuestion}
+        imagesData={questionsData[currentQuestion].images}
         onOptionSelect={setSelectedOption} // Passa a função de callback para Options
       />
       <Button onClick={nextQuestion} variant="yellow" size="default">
