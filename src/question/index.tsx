@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 function Question() {
   const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+
   const openResult = () => {
     navigate(`/result`);
   };
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionsData: {
     text: string;
     options: string[];
@@ -48,11 +50,71 @@ function Question() {
     },
   ];
 
+  const pointsData: {
+    animal: string;
+    points: number;
+  }[] = [
+    { animal: "cachorro", points: 0 },
+    { animal: "gato", points: 0 },
+    { animal: "tigre", points: 0 },
+    { animal: "raposa", points: 0 },
+    { animal: "papagaio", points: 0 },
+    { animal: "tartaruga", points: 0 },
+    { animal: "coruja", points: 0 },
+    { animal: "camaleao", points: 0 },
+    { animal: "panda", points: 0 },
+    { animal: "capivara", points: 0 },
+    { animal: "lhama", points: 0 },
+    { animal: "preguica", points: 0 },
+    { animal: "golfinho", points: 0 },
+    { animal: "lontra", points: 0 },
+    { animal: "pinguim", points: 0 },
+  ];
+
   const nextQuestion = () => {
+    addPoints();
     if (currentQuestion < questionsData.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       openResult; // Alterne para a tela de resultado quando as perguntas terminarem
+    }
+  };
+
+  const addPoints = () => {
+    if (selectedOption !== null) {
+      console.log("Selected option:", selectedOption);
+      console.log(questionsData[currentQuestion].options[selectedOption]);
+      console.log(questionsData[currentQuestion].points[selectedOption]);
+
+      if (questionsData[currentQuestion].points[selectedOption].length > 1) {
+        questionsData[currentQuestion].points[selectedOption]
+          .split("/")
+          .forEach((value) => {
+            var groupToReceivePoints = parseInt(value) - 1;
+            console.log(
+              "groupToReceivePoints: " +
+                questionsData[currentQuestion].groups[groupToReceivePoints] +
+                " value " +
+                groupToReceivePoints
+            );
+            questionsData[currentQuestion].groups[groupToReceivePoints]
+              .split("/")
+              .forEach((animalToReceivePoints, index) => {
+                console.log("animalToReceivePoints  " + animalToReceivePoints);
+                /*console.log(
+                  pointsData.animal + " " + index + "  " + animalToReceivePoints
+                );
+                if (pointsData.animal.includes(animalToReceivePoints)) {*/
+                pointsData[index].points = pointsData[index].points + 1;
+                /*}*/
+              });
+          });
+        console.log(pointsData);
+      } else {
+        console.log("um");
+      }
+    } else {
+      console.log("No option selected");
     }
   };
 
@@ -64,6 +126,8 @@ function Question() {
       <Options
         variant={questionsData[currentQuestion].optionLayout}
         optionsData={questionsData[currentQuestion].options}
+        currentQuestion = {currentQuestion}
+        onOptionSelect={setSelectedOption} // Passa a função de callback para Options
       />
       <Button onClick={nextQuestion} variant="yellow" size="default">
         Próximo

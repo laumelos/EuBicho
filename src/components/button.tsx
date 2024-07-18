@@ -7,11 +7,13 @@ const buttonVariants = tv({
     variant: {
       purple: "bg-violet-900 text-zinc-50 hover:bg-violet-950",
       yellow: "bg-yellow-400 text-zinc-950 hover:bg-yellow-500",
-      white: "bg-zinc-50 text-zinc-950 hover:bg-violet-100 selected:bg-violet-300",
+      white:
+        "bg-zinc-50 text-zinc-950 hover:bg-violet-100 selected:bg-violet-300",
     },
     size: {
-      default: "w-full md:w-auto py-4 px-8 rounded-full md:px-12",
-      square: "w-full h-full rounded-lg p-8",
+      default: "w-full md:w-auto py-4 px-8 rounded-full md:px-12 font-medium",
+      square:
+        "w-full h-full rounded-xl p-4 md:p-8 border-solid border-4 border-violet-900",
     },
   },
   defaultVariants: {
@@ -28,7 +30,7 @@ interface ButtonProps
 
 function Button({ children, variant, size, ...props }: ButtonProps) {
   return (
-    <button {...props} className={buttonVariants({ variant, size }) }>
+    <button {...props} className={buttonVariants({ variant, size })}>
       {children}
     </button>
   );
