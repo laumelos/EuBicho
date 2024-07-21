@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode } from "react";
+import { ComponentProps, ReactNode, useState } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const buttonVariants = tv({
@@ -7,8 +7,7 @@ const buttonVariants = tv({
     variant: {
       purple: "bg-violet-900 text-zinc-50 hover:bg-violet-950",
       yellow: "bg-yellow-400 text-zinc-950 hover:bg-yellow-500",
-      white:
-        "bg-zinc-50 text-zinc-950 hover:bg-violet-100 selected:bg-violet-300",
+      white: "bg-zinc-50 text-zinc-950 hover:bg-violet-100",
     },
     size: {
       default:
@@ -16,10 +15,15 @@ const buttonVariants = tv({
       square:
         "text-base md:text-xl w-full h-auto lg:h-full rounded-xl p-4 space-y-2 border-solid border-4 border-violet-900",
     },
+    selected: {
+      default: "",
+      selected: "bg-violet-200",
+    },
   },
   defaultVariants: {
     variant: "purple",
     size: "default",
+    state: "default",
   },
 });
 
@@ -29,9 +33,12 @@ interface ButtonProps
   children: ReactNode;
 }
 
-function Button({ children, variant, size, ...props }: ButtonProps) {
+function Button({ children, variant, size, selected, ...props }: ButtonProps) {
   return (
-    <button {...props} className={buttonVariants({ variant, size })}>
+    <button
+      {...props}
+      className={buttonVariants({ variant, size, selected })}
+    >
       {children}
     </button>
   );

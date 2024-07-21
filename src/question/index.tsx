@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/button";
 import Options from "../components/options";
 import { useNavigate } from "react-router-dom";
@@ -6,10 +6,17 @@ import { useNavigate } from "react-router-dom";
 function Question() {
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [selectedButtonOption, setSelectedButtonOption] = useState<
+    number | null
+  >(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const openResult = () => {
     navigate(`/result`);
+  };
+
+  const clearButtonOptionClick = () => {
+    setSelectedButtonOption(null); // Limpa a seleção
   };
 
   const questionsData: {
@@ -43,7 +50,7 @@ function Question() {
       options: ["Invisibilidade ", "Teletransporte ", "Superforça", "Voar"],
       points: ["1", "2", "3", "4"],
       groups: [
-        "raposa/samaleao/gato/lhama",
+        "raposa/camaleao/gato/lhama",
         "golfinho/lontra/tigre",
         "panda/cachorro/capivara/preguica",
         "papagaio/coruja/pinguim/tartaruga",
@@ -62,7 +69,7 @@ function Question() {
       points: ["1", "2", "3", "4"],
       groups: [
         "tigre/raposa/lhama",
-        "golfinho/lontra/tigre",
+        "golfinho/lontra/pinguim/tartaruga",
         "papagaio/coruja/panda/preguica",
         "capivara/cachorro/gato/camaleao",
       ],
@@ -152,17 +159,12 @@ function Question() {
         "papagaio/capivara/preguica/tartaruga",
         "gato/lhama/pinguim",
       ],
-      images: [],
+      images: ["Q9O1.png", "Q9O2.png", "Q9O3.png", "Q9O4.png"],
       optionLayout: "grid",
     },
     {
       text: "Por fim… Siga sua intuição!",
-      options: [
-        "Alimentar-se exclusivamente de comidas geladas por uma semana",
-        "Acampar sozinho na floresta por 3 dias",
-        "Participar do BBB por um mês",
-        "Passar 15 dias andando apenas de bicicleta ou a pé",
-      ],
+      options: ["1", "10", "100", "300"],
       points: ["1", "2", "3", "4"],
       groups: [
         "papagaio/camaleao/gato/coruja",
@@ -175,10 +177,7 @@ function Question() {
     },
   ];
 
-  const pointsData: {
-    animal: string;
-    points: number;
-  }[] = [
+  const [pointsData, setPointsData] = useState([
     { animal: "cachorro", points: 0 },
     { animal: "gato", points: 0 },
     { animal: "tigre", points: 0 },
@@ -194,62 +193,59 @@ function Question() {
     { animal: "golfinho", points: 0 },
     { animal: "lontra", points: 0 },
     { animal: "pinguim", points: 0 },
-  ];
+  ]);
 
   const nextQuestion = () => {
-    addPoints();
-    if (currentQuestion < questionsData.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      openResult; // Alterne para a tela de resultado quando as perguntas terminarem
+    if (selectedOption !== null) {
+      setSelectedOption(null);
+      clearButtonOptionClick(); //Tirar estilo do botão selecionado anteriormente
+      addPointsForOptions();
+      if (currentQuestion < questionsData.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        openResult; // Alterne para a tela de resultado quando as perguntas terminarem
+      }
     }
   };
 
-  const addPoints = () => {
+  const addPointsForOptions = () => {
     if (selectedOption !== null) {
       console.log("Selected option:", selectedOption);
-      console.log(questionsData[currentQuestion].options[selectedOption]);
-      console.log(questionsData[currentQuestion].points[selectedOption]);
 
+      //Se a opção adiciona perguntas para mais de um grupo
       if (questionsData[currentQuestion].points[selectedOption].length > 1) {
         questionsData[currentQuestion].points[selectedOption]
           .split("/")
-          .forEach((value) => {
-            var groupToReceivePoints = parseInt(value) - 1;
+          .forEach((option) => {
+            var groupToReceivePoints = parseInt(option) - 1;
             console.log(
               "groupToReceivePoints: " +
                 questionsData[currentQuestion].groups[groupToReceivePoints] +
-                " value " +
+                " option " +
                 groupToReceivePoints
             );
-            questionsData[currentQuestion].groups[groupToReceivePoints]
-              .split("/")
-              .forEach((animalToReceivePoints) => {
-                console.log("animalToReceivePoints  " + animalToReceivePoints);
-                pointsData.forEach((pointData, index) => {
-                  console.log(
-                    "animalToReceivePoints  " + animalToReceivePoints
-                  );
-                  console.log(
-                    pointData.animal +
-                      " " +
-                      index +
-                      "  " +
-                      animalToReceivePoints
-                  );
-                  if (pointData.animal === animalToReceivePoints) {
-                    pointsData[index].points += 1;
-                  }
-                });
-              });
+            addPointsToAnimals(groupToReceivePoints);
           });
-        console.log(pointsData);
       } else {
-        console.log("um");
+        var groupToReceivePoints =
+          parseInt(questionsData[currentQuestion].points[selectedOption]) - 1;
+        addPointsToAnimals(groupToReceivePoints);
       }
-    } else {
-      console.log("No option selected");
     }
+    console.log(pointsData);
+  };
+
+  //Adiciona um ponto no array para cada animal no grupo
+  const addPointsToAnimals = (groupToReceivePoints: number) => {
+    questionsData[currentQuestion].groups[groupToReceivePoints]
+      .split("/")
+      .forEach((animalToReceivePoints) => {
+        pointsData.forEach((pointData, index) => {
+          if (pointData.animal === animalToReceivePoints) {
+            pointsData[index].points += 1;
+          }
+        });
+      });
   };
 
   return (
@@ -262,6 +258,8 @@ function Question() {
         optionsData={questionsData[currentQuestion].options}
         imagesData={questionsData[currentQuestion].images}
         onOptionSelect={setSelectedOption} // Passa a função de callback para Options
+        selectedButtonOption={selectedButtonOption}
+        setSelectedButtonOption={setSelectedButtonOption}
       />
       <Button onClick={nextQuestion} variant="yellow" size="default">
         Próximo
