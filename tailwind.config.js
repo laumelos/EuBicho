@@ -7,6 +7,12 @@ export default {
         portrait: { raw: "(orientation: portrait)" },
         landscape: { raw: "(orientation: landscape)" },
       },
+      inset: {
+        'top-half': '-25%', 
+      },
+      margin: {
+        'mb-half': '50%', 
+      },
     },
   },
   plugins: [],

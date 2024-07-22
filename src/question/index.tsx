@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../components/button";
 import Options from "../components/options";
 import { useNavigate } from "react-router-dom";
@@ -12,8 +12,7 @@ function Question() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const openResult = () => {
-    navigate(`/result`);
-  };
+    navigate(`/result`, { state: { pointsData } });  };
 
   const clearButtonOptionClick = () => {
     setSelectedButtonOption(null); // Limpa a seleção
@@ -178,21 +177,21 @@ function Question() {
   ];
 
   const [pointsData, setPointsData] = useState([
-    { animal: "cachorro", points: 0 },
-    { animal: "gato", points: 0 },
-    { animal: "tigre", points: 0 },
-    { animal: "raposa", points: 0 },
-    { animal: "papagaio", points: 0 },
-    { animal: "tartaruga", points: 0 },
-    { animal: "coruja", points: 0 },
-    { animal: "camaleao", points: 0 },
-    { animal: "panda", points: 0 },
-    { animal: "capivara", points: 0 },
-    { animal: "lhama", points: 0 },
-    { animal: "preguica", points: 0 },
-    { animal: "golfinho", points: 0 },
-    { animal: "lontra", points: 0 },
-    { animal: "pinguim", points: 0 },
+    { animal: "cachorro", points: 0, name: "Cachorro", image: "Q1O1.png", text:"O cachorro é leal, amigável e cheio de energia. Com um faro superpoderoso e habilidades incríveis de comunicação, ele entende suas emoções e até 250 palavras. Sempre pronto para aventuras, ele é o companheiro ideal para todas as horas."},
+    { animal: "gato", points: 0, name: "Gato", image: "Q1O1.png", text:"O gato é independente, curioso e cheio de graça. Ele adora explorar, tem reflexos rápidos e um ronronar que acalma. Com habilidades de caça afiadas e uma incrível capacidade de se adaptar, ele é um companheiro elegante e cheio de mistério." },
+    { animal: "tigre", points: 0, name: "Tigre", image: "Q1O1.png", text:"O tigre é majestoso e poderoso, com um olhar que impõe respeito. Ele é um caçador solitário, conhecido por sua agilidade e força. Seus listras únicas o tornam um dos animais mais icônicos da selva, e sua habilidade em nadar e escalar o diferencia no reino animal." },
+    { animal: "raposa", points: 0, name: "Raposa", image: "Q1O1.png", text:"A raposa é astuta e adaptável, famosa por sua esperteza e inteligência. Ela se destaca por sua capacidade de se camuflar em diversos ambientes e é um excelente caçador noturno. Com seu focinho afiado e orelhas grandes, a raposa é tanto charmosa quanto habilidosa." },
+    { animal: "papagaio", points: 0, name: "Papagaio", image: "Q1O1.png", text:"O papagaio é vibrante e sociável, conhecido por suas cores brilhantes e habilidades impressionantes de imitar sons. Ele é extremamente inteligente e gosta de interagir com os humanos, muitas vezes se tornando o centro das atenções com suas “conversas” divertidas." },
+    { animal: "tartaruga", points: 0, name: "Tartaruga", image: "Q1O1.png", text:"Lentas mas determinadas, as tartarugas são símbolos de persistência e longevidade. Com suas cascas protetoras e uma vida longa, elas viajam pelo tempo com calma e sabedoria, sempre mantendo um ritmo constante em suas jornadas." },
+    { animal: "coruja", points: 0, name: "Coruja", image: "Q1O1.png", text:"Mistérios da noite, as corujas são conhecidas por sua visão aguçada e capacidade de voar em silêncio. Símbolos de sabedoria e vigilância, elas caçam com precisão e têm um jeito encantador de girar a cabeça em quase 360 graus." },
+    { animal: "camaleao", points: 0, name: "Camaleão", image: "Q1O1.png", text:"Mestres da camuflagem, os camaleões mudam de cor para se adaptar ao ambiente e mostrar emoções. Com olhos que se movem independentemente, eles têm uma visão panorâmica e uma língua rápida como um foguete para capturar insetos." },
+    { animal: "panda", points: 0, name: "Panda", image: "Q1O1.png", text:"Os pandas são conhecidos por seu charme e pelagem preta e branca. Embora passem a maior parte do tempo comendo bambu, são excelentes escaladores e têm um comportamento brincalhão. Eles têm uma personalidade tranquila e adorável." },
+    { animal: "capivara", points: 0, name: "Capivara", image: "Q1O1.png", text:"A capivara é o maior roedor do mundo e tem um jeito sociável e relaxado. Adora água e passa muito tempo nadando e socializando com seus amigos. São animais gentis e amigáveis, sempre prontos para um banho de sol." },
+    { animal: "lhama", points: 0, name: "Lhama", image: "Q1O1.png", text:"A lhama é uma criatura carinhosa e muito expressiva, conhecida por seu charme e suas caretas engraçadas. Ela é super sociável e adora estar com a sua manada. Além de serem ótimas para carregar cargas, elas também têm um talento especial para spitting!" },
+    { animal: "preguica", points: 0, name: "Bicho-preguiça", image: "Q1O1.png", text:"O bicho-preguiça é o mestre da calma, passando a maior parte do tempo pendurado de cabeça para baixo nas árvores. Seu ritmo lento é uma forma de economizar energia, e ele só desce para o chão uma vez por semana. Seus movimentos são tão lentos que até as algas crescem em seu pelo!" },
+    { animal: "golfinho", points: 0, name: "Golfinho", image: "Q1O1.png", text:"Amigáveis e inteligentes, os golfinhos são conhecidos por suas habilidades acrobáticas e sua comunicação complexa. Eles formam laços fortes dentro de seus grupos e têm um comportamento social rico. Além disso, são capazes de resolver problemas e usar ferramentas." },
+    { animal: "lontra", points: 0, name: "Lontra", image: "Q1O1.png", text:"Divertidas e sociais, as lontras são excelentes nadadoras e usam ferramentas, como pedras, para abrir moluscos. Elas formam laços fortes com suas famílias e passam muito tempo brincando e caçando em grupos. Com uma pelagem densa, elas se mantêm aquecidas mesmo em águas frias." },
+    { animal: "pinguim", points: 0, name: "Pinguim", image: "Q1O1.png", text:"Os pinguins são mestres da natação e passam a maior parte do tempo no mar. Em terra, eles caminham com uma marcha engraçada e formam colônias grandes para se proteger do frio. São leais e cuidam bem de seus filhotes em um ambiente desafiador." },
   ]);
 
   const nextQuestion = () => {
@@ -200,10 +199,12 @@ function Question() {
       setSelectedOption(null);
       clearButtonOptionClick(); //Tirar estilo do botão selecionado anteriormente
       addPointsForOptions();
+      console.log(questionsData.length);
+      console.log(currentQuestion)
       if (currentQuestion < questionsData.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
       } else {
-        openResult; // Alterne para a tela de resultado quando as perguntas terminarem
+        openResult(); // Alterne para a tela de resultado quando as perguntas terminarem
       }
     }
   };
