@@ -106,7 +106,7 @@ function Question() {
     },
     {
       text: "Qual o seu nível de energia na maior parte do tempo?",
-      options: ["0-24%", "25-49%", "50-74%", "75-100%"],
+      options: ["", "", "", ""],
       points: ["1", "2", "3", "4"],
       groups: [
         "preguica/tartaruga/panda/capivara",
@@ -114,8 +114,8 @@ function Question() {
         "raposa/cachorro/pinguim",
         "tigre/golfinho/papagaio/lontra",
       ],
-      images: [],
-      optionLayout: "column",
+      images: ["Q6O1.svg", "Q6O2.svg", "Q6O3.svg", "Q6O4.svg"],
+      optionLayout: "grid",
     },
     {
       text: "Qual animal fictício você gostaria de conhecer?",
@@ -176,7 +176,16 @@ function Question() {
     },
   ];
 
-  const [pointsData, setPointsData] = useState([
+
+  interface Animal {
+    animal: string;
+    points: number;
+    name: string;
+    image: string;
+    text: string;
+  }
+
+  const [pointsData, setPointsData] = useState<Animal[]>([
     { animal: "cachorro", points: 0, name: "Cachorro", image: "Q1O1.png", text:"O cachorro é leal, amigável e cheio de energia. Com um faro superpoderoso e habilidades incríveis de comunicação, ele entende suas emoções e até 250 palavras. Sempre pronto para aventuras, ele é o companheiro ideal para todas as horas."},
     { animal: "gato", points: 0, name: "Gato", image: "Q1O1.png", text:"O gato é independente, curioso e cheio de graça. Ele adora explorar, tem reflexos rápidos e um ronronar que acalma. Com habilidades de caça afiadas e uma incrível capacidade de se adaptar, ele é um companheiro elegante e cheio de mistério." },
     { animal: "tigre", points: 0, name: "Tigre", image: "Q1O1.png", text:"O tigre é majestoso e poderoso, com um olhar que impõe respeito. Ele é um caçador solitário, conhecido por sua agilidade e força. Seus listras únicas o tornam um dos animais mais icônicos da selva, e sua habilidade em nadar e escalar o diferencia no reino animal." },
@@ -250,10 +259,13 @@ function Question() {
   };
 
   return (
-    <div className="h-screen max-h-screen flex flex-col items-center bg-zinc-950 justify-between p-8 space-y-8 md:space-y-16 overflow-y-auto">
+    <div className="h-screen max-h-screen flex flex-col items-center bg-zinc-950 justify-between p-8 space-y-8 md:space-y-16 mdLandscape:space-y-10 smallLandscape:space-y-8 overflow-y-auto landscape:overflow-hidden">
+      <div className="flex flex-col space-y-4 items-center">
+      <p className="text-zinc-950 bg-yellow-400 rounded-full w-8 h-8 landscape:w-12 landscape:h-12 flex items-center justify-center text-lg font-semibold">{(currentQuestion) + 1}</p>
       <h2 className="text-zinc-50 text-3xl md:text-4xl text-center w-full md:w-3/4">
         {questionsData[currentQuestion].text}
       </h2>
+      </div>
       <Options
         variant={questionsData[currentQuestion].optionLayout}
         optionsData={questionsData[currentQuestion].options}

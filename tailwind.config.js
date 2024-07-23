@@ -4,17 +4,19 @@ export default {
   theme: {
     extend: {
       screens: {
-        smallest: { raw: "(max-width: 380px) and (max-height: 680px)" },
-        portrait: { raw: "(orientation: portrait)" },
-        landscape: { raw: "(orientation: landscape)" },
+        smallPortrait: { raw: "((max-width: 340px) or (max-height: 680px)) and (orientation: portrait)" },
+        smallLandscape: { raw: "(max-height: 680px) and (orientation: landscape)" },
+        mdPortrait: { raw: "(min-height: 681px) and (orientation: portrait)" },
+        mdLandscape: { raw: "(min-height: 681px) and (orientation: landscape)" },
       },
       inset: {
         "top-half": "-25vw",
-        "lg-top-half": "-12.5vw",
+        "lg-top-half": "-10vw",
+        "b-unset": "unset",
       },
       margin: {
         "mb-half": "30vw",
-        "mb-quarter": "15vw",
+        "mb-quarter": "12.5vw",
       },
     },
   },
