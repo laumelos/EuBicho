@@ -4,14 +4,17 @@ export default {
   theme: {
     extend: {
       screens: {
+        smallest: { raw: "(max-width: 380px) and (max-height: 680px)" },
         portrait: { raw: "(orientation: portrait)" },
         landscape: { raw: "(orientation: landscape)" },
       },
       inset: {
-        'top-half': '-25%', 
+        "top-half": "-25vw",
+        "lg-top-half": "-12.5vw",
       },
       margin: {
-        'mb-half': '50%', 
+        "mb-half": "30vw",
+        "mb-quarter": "15vw",
       },
     },
   },

@@ -41,45 +41,52 @@ function Result() {
     console.log("oii");
   };
   return (
-    <div className="h-screen max-h-screen flex flex-col items-center bg-violet-900 space-y-8">
-      <div className="flex flex-col items-center justify-center mb-mb-half">
-        <div className="flex flex-col space-y-2 p-8 items-center justify-center box-border">
-          <p className="text-yellow-400 text-sm md:text-2xl lg:text-xl text-center">
-            e o resultado foi...
+    <div className="h-screen max-h-screen flex flex-col items-center justify-between ">
+      <div className="w-full flex flex-col items-center bg-violet-900  p-8 pb-0 relative">
+        <div className="flex flex-col space-y-4 items-center justify-center smallest:mb-40 mb-mb-half landscape:mb-mb-quarter">
+          <div className="flex flex-col space-y-2 items-center justify-center box-border">
+            <p className="text-yellow-400 text-sm md:text-2xl lg:text-xl text-center">
+              e o resultado foi...
+            </p>
+            <h1 className="text-4xl md:text-6xl font-semibold text-zinc-50 text-center">
+              {resultAnimal.name}!
+            </h1>
+          </div>
+          <p className="md:w-3/4 text-zinc-50 text-md md:text-xl landscape:text-md landscape:text-md font-normal text-center smallest:hidden portrait:visible">
+            {resultAnimal.text}
           </p>
-          <h1 className="text-4xl md:text-6xl font-semibold text-zinc-50 text-center w-3/4 lg:w-full">
-            {resultAnimal.name}!
-          </h1>
         </div>
-        <p className="w-3/4 md:w-2/4 text-zinc-50 text-sm md:text-2xl lg:text-xl text-center">
-          {resultAnimal.text}
-        </p>
-      </div>
-
-      <div className="w-full h-2/4 bg-zinc-950 p-8 pt-0 md:pt-8 flex flex-col items-center justify-end space-y-8 absolute bottom-0">
         <img
-          className="w-auto h-2/4 bg-zinc-50 border-8 border-zinc-950 rounded-full p-4 lg:p-8 absolute top-top-half z-50"
+          className="w-2/4 landscape:w-1/4 h-auto bg-zinc-50 border-8 border-zinc-950 rounded-full p-4 lg:p-8 absolute bottom-top-half landscape:bottom-lg-top-half z-50"
           src={`/questions-images/${resultAnimal.image}`}
           alt="Imagem do animal"
         />
-        <div className="flex flex-col space-y-4 items-center">
-          <p className="text-yellow-50 text-sm md:text-2xl lg:text-xl text-center">
-            Gostou? Compartilhe para saber o resultado dos seus amigos!
+      </div>
+
+      <div className="w-full flex-1 bg-zinc-950 p-8 pt-0 flex flex-col items-center justify-end">
+        <div className="flex flex-col space-y-8 items-center">
+          <div className="flex flex-col space-y-4 items-center">
+            <p className="text-yellow-50 text-sm md:text-2xl lg:text-xl text-center">
+              Gostou? Compartilhe para saber o resultado dos seus amigos!
+            </p>
+            <Button onClick={shareButton} variant="purple" size="default">
+              <p className="text-yellow-50 text-sm md:text-2xl lg:text-xl text-center">
+                Compartilhar
+              </p>
+            </Button>
+          </div>
+
+          <p className="text-yellow-400 text-sm md:text-2xl lg:text-xl text-center">
+            Design e desenvolvimento por{" "}
+            <a
+              className="underline"
+              href="https://www.lauramelo.com.br"
+              target="_blank"
+            >
+              Laura Melo
+            </a>
           </p>
-          <Button onClick={shareButton} variant="purple" size="default">
-            <p>Compartilhar</p>
-          </Button>
         </div>
-        <p className="text-yellow-400 text-sm md:text-2xl lg:text-xl text-center">
-          Design e desenvolvimento por{" "}
-          <a
-            className="underline"
-            href="https://www.lauramelo.com.br"
-            target="_blank"
-          >
-            Laura Melo
-          </a>
-        </p>
       </div>
     </div>
   );
