@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 import Button from "./button"; // Certifique-se de que o caminho está correto
 

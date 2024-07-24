@@ -185,7 +185,7 @@ function Question() {
     text: string;
   }
 
-  const [pointsData, setPointsData] = useState<Animal[]>([
+  const [pointsData] = useState<Animal[]>([
     { animal: "cachorro", points: 0, name: "Cachorro", image: "cachorro.png", text:"O cachorro é leal, amigável e cheio de energia. Com um faro superpoderoso e habilidades incríveis de comunicação, ele entende suas emoções e até 250 palavras. Sempre pronto para aventuras, ele é o companheiro ideal para todas as horas."},
     { animal: "gato", points: 0, name: "Gato", image: "gato.png", text:"O gato é independente, curioso e cheio de graça. Ele adora explorar, tem reflexos rápidos e um ronronar que acalma. Com habilidades de caça afiadas e uma incrível capacidade de se adaptar, ele é um companheiro elegante e cheio de mistério." },
     { animal: "tigre", points: 0, name: "Tigre", image: "tigre.png", text:"O tigre é majestoso e poderoso, com um olhar que impõe respeito. Ele é um caçador solitário, conhecido por sua agilidade e força. Seus listras únicas o tornam um dos animais mais icônicos da selva, e sua habilidade em nadar e escalar o diferencia no reino animal." },
