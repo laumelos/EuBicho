@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        smallPortrait: { raw: "((max-width: 340px) or (max-height: 680px)) and (orientation: portrait)" },
+        smallPortrait: { raw: "((max-width: 360px) or (max-height: 720px)) and (orientation: portrait)" },
         smallLandscape: { raw: "(max-height: 680px) and (orientation: landscape)" },
         mdPortrait: { raw: "(min-height: 681px) and (orientation: portrait)" },
         mdLandscape: { raw: "(min-height: 681px) and (orientation: landscape)" },

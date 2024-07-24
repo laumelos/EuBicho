@@ -43,7 +43,7 @@ function Options({
       {/* Mostra a imagem da pergunta apenas quando há exatamente 2 opções */}
       {optionsData.length === 2 && (
         <img
-          className="w-auto h-auto max-w-44 m-4 smallLandscape:max-h-32"
+          className="w-auto h-auto max-w-44 m-4 smallLandscape:max-h-32 mdLandscape:max-h-60"
           src={`/questions-images/${imagesData[0]}`} // Ajuste o índice conforme necessário
           alt="Imagem da pergunta"
         />
@@ -58,7 +58,7 @@ function Options({
         >
           {imagesData.length > 0 && optionsData.length !== 2 &&(
             <img
-              className="w-40 mdLandscape:w-32 h-auto smallPortrait:max-h-24 max-h-32 md:max-h-52 landscape:max-h-40"
+              className="w-40 mdLandscape:w-32 h-auto smallPortrait:max-w-16 mdPortrait:max-w-24 smallLandscape:max-w-20 mdLandscape:max-w-32"
               src={`/questions-images/${imagesData[index]}`}
               alt={`Imagem da opção ${index + 1}`}
             />
