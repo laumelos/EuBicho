@@ -5,11 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "chmod +x ./node_modules/.bin/tsc && chmod +x ./node_modules/.bin/vite && tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "postinstall": "tsc -b && vite build"
-
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
