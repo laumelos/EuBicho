@@ -1,0 +1,10 @@
+{
+    "builds": [
+      {
+        "src": "src/main.tsx",
+        "use": "@vercel/node"
+      }
+    ],
+    "outputDirectory": "dist"
+  }
+  
