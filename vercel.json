@@ -1,15 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node"
-    }
-  ],
-  "outputDirectory": "dist"
+      {"source": "/(.*)", "destination": "/"}
+  ]
 }
