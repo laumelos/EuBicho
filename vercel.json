@@ -1,5 +1,11 @@
 {
-  "rewrites": [
-      {"source": "/(.*)", "destination": "/"}
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+
+  "builds": [
+    {
+      "src": "src/index.html",
+      "use": "@vercel/node"
+    }
+  ],
+  "outputDirectory": "dist"
 }
