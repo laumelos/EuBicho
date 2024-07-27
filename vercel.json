@@ -1,9 +1,9 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "rewrites": [{ "source": "/(.*)", "destination": "./index.html" }],
 
   "builds": [
     {
-      "src": "src/main.tsx",
+      "src": "./src/main.tsx",
       "use": "@vercel/node"
     }
   ],
