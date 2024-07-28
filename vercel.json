@@ -2,8 +2,11 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build"
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "outputDirectory": "dist"
