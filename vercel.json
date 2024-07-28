@@ -1,9 +1,8 @@
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
-
   "builds": [
     {
-      "src": "vite.config.js",
+      "src": "src/main.tsx",
       "use": "@vercel/node"
     }
   ],
