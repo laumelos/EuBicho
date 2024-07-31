@@ -60,7 +60,7 @@ Se você deseja contribuir para este projeto, sinta-se à vontade. Qualquer feed
 - **Nome**: Laura Melo
 - **Email**: lauraemelos@gmail.com
 - **LinkedIn**: [https://www.linkedin.com/in/laura-melo-91533222b/]
-- - **Site**: [https://www.lauramelo.com.br]
+- **Site**: [https://www.lauramelo.com.br]
 
 
 
