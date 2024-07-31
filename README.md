@@ -8,9 +8,8 @@ Bem-vindo ao *euBicho*, um quiz de personalidade desenvolvido para revelar o ani
 3 - Resultado final: No final das 10 perguntas, o animal com mais pontos será revelado como aquele que mais se parece com você! 🐶🐱🦁
 
 ## Por trás das cenas
-Embora o quiz não seja cientificamente preciso, cada opção foi pensada para ter uma relação, real ou hipotética, com as características dos animais. Então, há um pensamento divertido por trás de cada pergunta e resposta!
+Embora o quiz não seja cientificamente preciso, cada opção foi pensada para ter uma relação, real ou hipotética, com as características dos animais. Então, há um pensamento divertido por trás de cada pergunta e resposta!  
 
-## Documentação
 Quer saber mais sobre como cada resposta pontua para os diferentes animais? Eu fiz um documento detalhado explicando tudo isso, que você pode conferir aqui [https://docs.google.com/document/d/1mSAZmdGCfyYRuTUDZsLBK2wUsyH20TniZ4MrzW8Lc9g/edit?usp=sharing].
 
 ## Estrutura de Pastas
