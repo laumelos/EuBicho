@@ -1,5 +1,6 @@
 import { tv, VariantProps } from "tailwind-variants";
 import Button from "./button"; // Certifique-se de que o caminho está correto
+import classNames from "classnames";
 
 const optionsVariants = tv({
   base: "w-2/4",
@@ -38,7 +39,7 @@ function Options({
   };
 
   return (
-    <div className={optionsVariants({ variant })}>
+    <div className={classNames(optionsVariants({ variant }))}>
       {/* Mostra a imagem da pergunta apenas quando há exatamente 2 opções */}
       {optionsData.length === 2 && (
         <img
@@ -62,7 +63,7 @@ function Options({
               alt={`Imagem da opção ${index + 1}`}
             />
           )}
-          {{ optionsData } && <p>{option}</p>}
+          {{ optionsData } && <p className="smallPortrait:text-sm">{option}</p>}
         </Button>
       ))}
     </div>

@@ -68,7 +68,7 @@ function Result() {
   return (
     <div className="h-screen max-h-screen flex flex-col items-center justify-between">
       <div className="w-full flex flex-col items-center bg-violet-900  p-8 mdPortrait:py-12 pb-0 relative">
-        <div className="flex flex-col space-y-4 md:space-y-12 lg:space-y-8 smallLandscape:space-y-4 items-center justify-center mb-mb-half mdLandscape:mb-mb-quarter smallLandscape:mb-8">
+        <div className="flex flex-col space-y-4 md:space-y-12 lg:space-y-8 smallLandscape:space-y-4 items-center justify-center mb-mb-half lgPortrait:mb-mb-quarter mdLandscape:mb-mb-quarter smallLandscape:mb-8">
           <div className="flex flex-col space-y-2 items-center justify-center box-border">
             <p className="text-yellow-400 text-sm md:text-2xl lg:text-md text-center">
               e o resultado foi...
@@ -83,9 +83,7 @@ function Result() {
             </p>
             {resultAnimal && (
               <img
-                className={`w-2/4 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset box-border ${
-                  imageLoaded ? "" : "p-36"
-                }`}
+                className={`w-2/4 lgPortrait:w-2/5 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset box-border`}
                 src={
                   imageLoaded
                     ? `/animal-images/${resultAnimal.image}`
@@ -121,7 +119,7 @@ function Result() {
             Design e desenvolvimento por{" "}
             <a
               className="underline"
-              href="https://www.lauramelo.com.br"
+              href="https://eu-bicho.vercel.app/"
               target="_blank"
             >
               Laura Melo

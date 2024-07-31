@@ -10,7 +10,10 @@ export default {
         smallLandscape: {
           raw: "(max-height: 680px) and (orientation: landscape)",
         },
-        mdPortrait: { raw: "(min-height: 681px) and (orientation: portrait)" },
+        mdPortrait: { raw: "(min-height: 721px) and (orientation: portrait)" },
+        lgPortrait: {
+          raw: "((min-height: 1024px) and (max-height: 1100px)) and (orientation: portrait)",
+        },
         mdLandscape: {
           raw: "(min-height: 681px) and (orientation: landscape)",
         },
@@ -23,12 +26,6 @@ export default {
       margin: {
         "mb-half": "30vw",
         "mb-quarter": "12.5vw",
-      },
-      padding: {
-        "safe-top": "env(safe-area-inset-top)",
-        "safe-bottom": "env(safe-area-inset-bottom)",
-        "safe-left": "env(safe-area-inset-left)",
-        "safe-right": "env(safe-area-inset-right)",
       },
     },
   },
