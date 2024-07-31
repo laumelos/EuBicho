@@ -8,7 +8,7 @@ function Home() {
   };
 
   return (
-    <div className="h-screen max-h-screen flex flex-col items-center bg-violet-900 justify-between">
+    <div className="h-screen max-h-screen flex flex-col items-center bg-violet-900 justify-between pt-safe-top pb-safe-bottom">
       <div className="flex flex-col space-y-2 p-8 items-center md:h-1/5 landscape:h-2/5 justify-center box-border">
         <p className="text-yellow-400 text-sm md:text-2xl lg:text-xl text-center">
           Design e desenvolvimento por{" "}

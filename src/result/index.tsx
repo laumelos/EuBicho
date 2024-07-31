@@ -66,7 +66,7 @@ function Result() {
   };
 
   return (
-    <div className="h-screen max-h-screen flex flex-col items-center justify-between">
+    <div className="h-screen max-h-screen flex flex-col items-center justify-between pt-safe-top pb-safe-bottom">
       <div className="w-full flex flex-col items-center bg-violet-900  p-8 pb-0 relative">
         <div className="flex flex-col space-y-4 md:space-y-12 lg:space-y-8 smallLandscape:space-y-4 items-center justify-center mb-mb-half mdLandscape:mb-mb-quarter smallLandscape:mb-8">
           <div className="flex flex-col space-y-2 items-center justify-center box-border">

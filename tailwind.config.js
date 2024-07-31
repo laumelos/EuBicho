@@ -4,10 +4,16 @@ export default {
   theme: {
     extend: {
       screens: {
-        smallPortrait: { raw: "((max-width: 360px) or (max-height: 720px)) and (orientation: portrait)" },
-        smallLandscape: { raw: "(max-height: 680px) and (orientation: landscape)" },
+        smallPortrait: {
+          raw: "((max-width: 360px) or (max-height: 720px)) and (orientation: portrait)",
+        },
+        smallLandscape: {
+          raw: "(max-height: 680px) and (orientation: landscape)",
+        },
         mdPortrait: { raw: "(min-height: 681px) and (orientation: portrait)" },
-        mdLandscape: { raw: "(min-height: 681px) and (orientation: landscape)" },
+        mdLandscape: {
+          raw: "(min-height: 681px) and (orientation: landscape)",
+        },
       },
       inset: {
         "top-half": "-25vw",
@@ -17,6 +23,12 @@ export default {
       margin: {
         "mb-half": "30vw",
         "mb-quarter": "12.5vw",
+      },
+      padding: {
+        "safe-top": "env(safe-area-inset-top)",
+        "safe-bottom": "env(safe-area-inset-bottom)",
+        "safe-left": "env(safe-area-inset-left)",
+        "safe-right": "env(safe-area-inset-right)",
       },
     },
   },

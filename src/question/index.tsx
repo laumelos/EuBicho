@@ -364,7 +364,7 @@ function Question() {
   };
 
   return (
-    <div className="h-screen max-h-screen flex flex-col items-center bg-zinc-950 justify-between p-8 space-y-8 md:space-y-16 mdLandscape:space-y-10 smallLandscape:space-y-8 overflow-y-auto portrait:overflow-y-auto">
+    <div className="h-screen max-h-screen flex flex-col items-center bg-zinc-950 justify-between p-8 space-y-8 md:space-y-16 mdLandscape:space-y-10 smallLandscape:space-y-8 overflow-y-auto portrait:overflow-y-auto pt-safe-top pb-safe-bottom">
       <div className="flex flex-col space-y-4 items-center">
         <p className="text-zinc-950 bg-yellow-400 rounded-full w-8 h-8 landscape:w-12 landscape:h-12 flex items-center justify-center text-lg font-semibold">
           {currentQuestion + 1}
