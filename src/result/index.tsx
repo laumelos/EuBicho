@@ -51,7 +51,7 @@ function Result() {
 
   /**/
   const [linkCopied, setLinkCopied] = useState(false);
-  const link = "https://www.lauramelo.com.br";
+  const link = "https://eu-bicho.vercel.app/";
 
   const copyToClipboard = async () => {
     try {
@@ -119,7 +119,7 @@ function Result() {
             Design e desenvolvimento por{" "}
             <a
               className="underline"
-              href="https://eu-bicho.vercel.app/"
+              href="https://www.lauramelo.com.br"
               target="_blank"
             >
               Laura Melo
