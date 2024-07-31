@@ -55,15 +55,14 @@ function Options({
           size="square"
           onClick={() => controlButtonOptionClick(index)}
         >
-          {imagesData.length > 0 && optionsData.length !== 2 &&(
+          {imagesData.length > 0 && optionsData.length !== 2 && (
             <img
               className="w-40 mdLandscape:w-32 h-auto smallPortrait:max-w-16 mdPortrait:max-w-24 smallLandscape:max-w-20 mdLandscape:max-w-32"
               src={`/questions-images/${imagesData[index]}`}
               alt={`Imagem da opção ${index + 1}`}
             />
           )}
-          {{optionsData} && <p>{option}</p>}
-          
+          {{ optionsData } && <p>{option}</p>}
         </Button>
       ))}
     </div>

@@ -11,6 +11,8 @@ function Result() {
     text: string;
   } | null>(null); // Defina o tipo do estado
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   useEffect(() => {
     const getHighestScoringAnimals = () => {
       if (pointsData.length === 0) return [];
@@ -79,11 +81,20 @@ function Result() {
             <p className="w-full text-zinc-50 text-md md:text-xl text-center mdPortrait:visible smallLandscape:text-left smallPortrait:text-sm smallLandscape:text-sm">
               {resultAnimal?.text}
             </p>
-            <img
-              className="w-2/4 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto  bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset"
-              src={`/animal-images/${resultAnimal?.image}`}
-              alt="Imagem do animal"
-            />
+            {resultAnimal && (
+              <img
+                className={`w-2/4 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset box-border ${
+                  imageLoaded ? "" : "p-36"
+                }`}
+                src={
+                  imageLoaded
+                    ? `/animal-images/${resultAnimal.image}`
+                    : `/loading.gif`
+                }
+                alt="Imagem do animal"
+                onLoad={() => setImageLoaded(true)}
+              />
+            )}
           </div>
         </div>
       </div>
