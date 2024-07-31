@@ -3,8 +3,8 @@ euBicho🐾
 Bem-vindo ao *euBicho*, um quiz de personalidade desenvolvido para revelar o animal que mais se parece com a sua personalidade. Este é o meu primeiro projeto pessoal utilizando React e Tailwind CSS.
 
 ## Como funciona?
-1 - Responda as perguntas: Você vai responder a 10 perguntas sobre suas preferências e características.
-2 - Pontuação dos animais: Cada resposta que você escolher adiciona pontos para diferentes animais. Por exemplo, se você escolher o voo como superpoder, pode ganhar pontos para um papagaio ou uma coruja.
+1 - Responda as perguntas: Você vai responder a 10 perguntas sobre suas preferências e características.  
+2 - Pontuação dos animais: Cada resposta que você escolher adiciona pontos para diferentes animais. Por exemplo, se você escolher o voo como superpoder, pode ganhar pontos para um papagaio ou uma coruja.  
 3 - Resultado final: No final das 10 perguntas, o animal com mais pontos será revelado como aquele que mais se parece com você! 🐶🐱🦁
 
 ## Por trás das cenas
