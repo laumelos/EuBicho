@@ -71,7 +71,7 @@ function Result() {
             <p className="text-yellow-400 text-sm md:text-2xl lg:text-md text-center">
               e o resultado foi...
             </p>
-            <h1 className="text-4xl md:text-6xl font-semibold text-zinc-50 text-center smallPortrait:text-2xl">
+            <h1 className="text-5xl md:text-6xl font-semibold text-zinc-50 text-center smallPortrait:text-2xl">
               {resultAnimal?.name}!
             </h1>
           </div>

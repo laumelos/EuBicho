@@ -31,7 +31,7 @@ function Home() {
       <div className=" w-full space-y-0 flex flex-col flex-1 justify-end">
         <img
           className="w-full portrait:flex landscape:hidden"
-          src="/cat-shadow.svg"
+          src="/cat-shadow.png"
           alt="Imagem silhueta gato"
         />
 
