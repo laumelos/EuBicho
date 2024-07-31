@@ -311,8 +311,6 @@ function Question() {
       setSelectedOption(null);
       clearButtonOptionClick(); //Tirar estilo do botão selecionado anteriormente
       addPointsForOptions();
-      console.log(questionsData.length);
-      console.log(currentQuestion);
       setIsOptionsLoaded(false); // Redefine o estado de carregamento para a próxima pergunta
 
       if (currentQuestion < questionsData.length - 1) {
@@ -325,20 +323,13 @@ function Question() {
 
   const addPointsForOptions = () => {
     if (selectedOption !== null) {
-      console.log("Selected option:", selectedOption);
-
       //Se a opção adiciona perguntas para mais de um grupo
       if (questionsData[currentQuestion].points[selectedOption].length > 1) {
         questionsData[currentQuestion].points[selectedOption]
           .split("/")
           .forEach((option) => {
             var groupToReceivePoints = parseInt(option) - 1;
-            console.log(
-              "groupToReceivePoints: " +
-                questionsData[currentQuestion].groups[groupToReceivePoints] +
-                " option " +
-                groupToReceivePoints
-            );
+
             addPointsToAnimals(groupToReceivePoints);
           });
       } else {
@@ -347,7 +338,6 @@ function Question() {
         addPointsToAnimals(groupToReceivePoints);
       }
     }
-    console.log(pointsData);
   };
 
   //Adiciona um ponto no array para cada animal no grupo

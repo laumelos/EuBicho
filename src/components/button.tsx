@@ -35,10 +35,7 @@ interface ButtonProps
 
 function Button({ children, variant, size, selected, ...props }: ButtonProps) {
   return (
-    <button
-      {...props}
-      className={buttonVariants({ variant, size, selected })}
-    >
+    <button {...props} className={buttonVariants({ variant, size, selected })}>
       {children}
     </button>
   );
