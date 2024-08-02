@@ -66,9 +66,9 @@ function Result() {
   };
 
   return (
-    <div className="h-screen max-h-screen flex flex-col items-center justify-between">
-      <div className="w-full flex flex-col items-center bg-violet-900  p-8 mdPortrait:py-12 pb-0 relative">
-        <div className="flex flex-col space-y-4 md:space-y-12 lg:space-y-8 smallLandscape:space-y-4 items-center justify-center mb-mb-half lgPortrait:mb-mb-quarter mdLandscape:mb-mb-quarter smallLandscape:mb-8">
+    <div className="h-screen max-h-screen flex flex-col items-center justify-between  bg-violet-900">
+      <div className="w-full flex flex-col items-center p-8 mdPortrait:py-12 pb-0 relative">
+        <div className="flex flex-col space-y-4 md:space-y-12 lg:space-y-8 smallLandscape:space-y-4 items-center justify-center mb-mb-half lgPortrait:mb-mb-quarter mdLandscape:mb-mb-quarter smallLandscape:mb-0">
           <div className="flex flex-col space-y-2 items-center justify-center box-border">
             <p className="text-yellow-400 text-sm md:text-2xl lg:text-md text-center">
               e o resultado foi...
@@ -78,12 +78,12 @@ function Result() {
             </h1>
           </div>
           <div className="w-full md:w-3/4 mdLandscape:w-2/4 flex flex-col items-center justify-center smallLandscape:flex-row-reverse smallLandscape:gap-8">
-            <p className="w-full text-zinc-50 text-md md:text-xl text-center mdPortrait:visible smallLandscape:text-left smallPortrait:text-sm smallLandscape:text-sm">
+            <p className="w-full text-zinc-50 text-md md:text-xl text-center mdPortrait:visible smallLandscape:text-left smallPortrait:text-sm smallLandscape:text-lg">
               {resultAnimal?.text}
             </p>
             {resultAnimal && (
               <img
-                className={`w-2/4 lgPortrait:w-2/5 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset box-border`}
+                className={`w-2/4 smallPortrait:w-2/5 lgPortrait:w-2/5 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset box-border`}
                 src={
                   imageLoaded
                     ? `/animal-images/${resultAnimal.image}`
@@ -97,15 +97,15 @@ function Result() {
         </div>
       </div>
 
-      <div className="w-full flex-1 bg-zinc-950 p-8 pt-0 flex flex-col items-center justify-end">
+      <img src="/shadow-simple.png" alt="Imagem silhueta gato" className="hidden smallLandscape:flex w-full h-auto" />
+
+      <div className="w-full flex-1 bg-zinc-950 p-8 flex flex-col items-center justify-end pt-mb-half lgPortrait:pt-mb-quarter mdLandscape:pt-mb-quarter smallLandscape:pt-8">
         <div className="flex flex-col space-y-8 smallLandscape:space-y-4 items-center">
           <div className="flex flex-col space-y-4 items-center smallLandscape:space-y-2">
-            <p className="text-yellow-50 text-sm md:text-2xl lg:text-xl text-center">
-              Gostou? Compartilhe para saber o resultado dos seus amigos!
-            </p>
+
             <Button onClick={copyToClipboard} variant="purple" size="default">
               <p className="text-zinc-50 text-sm md:text-2xl lg:text-xl text-center">
-                Compartilhar
+                Compartilhar quiz
               </p>
             </Button>
             {linkCopied && (

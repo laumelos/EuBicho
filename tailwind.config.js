@@ -8,14 +8,14 @@ export default {
           raw: "((max-width: 360px) or (max-height: 720px)) and (orientation: portrait)",
         },
         smallLandscape: {
-          raw: "(max-height: 680px) and (orientation: landscape)",
+          raw: "(max-height: 780px) and (orientation: landscape)",
         },
         mdPortrait: { raw: "(min-height: 721px) and (orientation: portrait)" },
         lgPortrait: {
           raw: "((min-height: 1024px) and (max-height: 1100px)) and (orientation: portrait)",
         },
         mdLandscape: {
-          raw: "(min-height: 681px) and (orientation: landscape)",
+          raw: "(min-height: 781px) and (orientation: landscape)",
         },
       },
       inset: {
