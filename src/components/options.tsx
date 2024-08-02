@@ -43,7 +43,7 @@ function Options({
       {/* Mostra a imagem da pergunta apenas quando há exatamente 2 opções */}
       {optionsData.length === 2 && (
         <img
-          className="w-auto h-auto max-w-40 m-4 smallLandscape:max-h-32 mdLandscape:max-h-60"
+          className="w-auto h-auto max-w-40 max-h-40 m-4 smallLandscape:max-h-32 mdLandscape:max-h-60"
           src={`/questions-images/${imagesData[0]}`} // Ajuste o índice conforme necessário
           alt="Imagem da pergunta"
         />
