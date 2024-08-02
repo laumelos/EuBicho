@@ -39,17 +39,24 @@ function Result() {
       return animals[randomIndex];
     };
 
-    const highestScoringAnimals = getHighestScoringAnimals();
+    // Verificar se o resultado já foi calculado na sessão
+    const storedAnimal = sessionStorage.getItem("resultAnimal");
+    if (storedAnimal) {
+      setResultAnimal(JSON.parse(storedAnimal));
+    } else {
+      const highestScoringAnimals = getHighestScoringAnimals();
 
-    const selectedAnimal =
-      highestScoringAnimals.length > 0
-        ? getRandomAnimal(highestScoringAnimals)
-        : null;
+      const selectedAnimal =
+        highestScoringAnimals.length > 0
+          ? getRandomAnimal(highestScoringAnimals)
+          : null;
 
-    setResultAnimal(selectedAnimal);
-  }, []);
+      setResultAnimal(selectedAnimal);
+      // Armazenar o resultado na sessão
+      sessionStorage.setItem("resultAnimal", JSON.stringify(selectedAnimal));
+    }
+  }, [pointsData]);
 
-  /**/
   const [linkCopied, setLinkCopied] = useState(false);
   const link = "https://eu-bicho.vercel.app/";
 
@@ -83,7 +90,7 @@ function Result() {
             </p>
             {resultAnimal && (
               <img
-                className={`w-2/4 smallPortrait:w-2/5 lgPortrait:w-2/5 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset box-border`}
+                className={`w-2/4 lgPortrait:w-2/5 smallLandscape:w-1/4 mdLandscape:w-1/5 h-auto bg-zinc-50 smallLandscape:bg-transparent border-8 border-zinc-950 smallLandscape:border-0 rounded-full p-4 smallLandscape:p-0 lg:p-8 absolute bottom-top-half mdLandscape:bottom-lg-top-half z-50 smallLandscape:relative smallLandscape:bottom-b-unset box-border`}
                 src={
                   imageLoaded
                     ? `/animal-images/${resultAnimal.image}`
@@ -97,12 +104,15 @@ function Result() {
         </div>
       </div>
 
-      <img src="/shadow-simple.png" alt="Imagem silhueta gato" className="hidden smallLandscape:flex w-full h-auto" />
+      <img
+        src="/shadow-simple.png"
+        alt="Imagem silhueta gato"
+        className="hidden smallLandscape:flex w-full h-auto"
+      />
 
-      <div className="w-full flex-1 bg-zinc-950 p-8 flex flex-col items-center justify-end pt-mb-half lgPortrait:pt-mb-quarter mdLandscape:pt-mb-quarter smallLandscape:pt-8">
+      <div className="w-full flex-1 bg-zinc-950 p-8 flex flex-col items-center justify-end">
         <div className="flex flex-col space-y-8 smallLandscape:space-y-4 items-center">
           <div className="flex flex-col space-y-4 items-center smallLandscape:space-y-2">
-
             <Button onClick={copyToClipboard} variant="purple" size="default">
               <p className="text-zinc-50 text-sm md:text-2xl lg:text-xl text-center">
                 Compartilhar quiz
