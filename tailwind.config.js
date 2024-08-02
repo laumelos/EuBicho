@@ -31,6 +31,9 @@ export default {
         "mb-half": "30vw",
         "mb-quarter": "12.5vw",
       },
+      minHeight: {
+        "safari":"-webkit-fill-available",
+      }
     },
   },
   plugins: [],
